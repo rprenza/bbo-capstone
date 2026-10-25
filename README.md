@@ -2,6 +2,35 @@
 
 Imperial College London — Professional Certificate in Machine Learning and AI
 
+## In plain language
+
+Imagine looking for the best spot in a dark room, where you are allowed one measurement
+a week and the room may have up to eight dimensions. That is this project. Eight hidden
+functions accept a set of numbers and return a single score, with no way to see inside
+them. Over thirteen weeks I submitted one query per function and used each result to
+decide the next.
+
+Rather than guessing, I built a model that learns the shape of each function from every
+measurement so far and proposes where the next one is most worth spending. All eight
+functions ended above their starting point, and for one I worked out the rule behind its
+behaviour.
+
+## Final results
+
+| Function | Inputs | Best at start | Best reached | Record in week |
+|---|---|---|---|---|
+| 1 | 2 | 0.0000 | **1.5012** | 11 |
+| 2 | 2 | 0.6112 | **0.6650** | 6 |
+| 3 | 3 | −0.0348 | **−0.0140** | 3 |
+| 4 | 4 | −4.0255 | **0.5792** | 10 |
+| 5 | 4 | 1088.86 | **8662.48** | 4 |
+| 6 | 5 | −0.7143 | **−0.1358** | 9 |
+| 7 | 6 | 1.3650 | **2.6746** | 12 |
+| 8 | 8 | 9.5985 | **9.9824** | 10 |
+
+A weekly query beat the starting data on all eight functions. Three records arrived in
+rounds 10 to 12, meaning the search was still improving when the budget ran out.
+
 ## Documentation
 
 - [Datasheet](DATASHEET.md) — how the query dataset was created, what it contains, and
