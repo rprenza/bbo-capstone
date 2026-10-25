@@ -80,16 +80,29 @@ unknown — so all performance claims are relative to what was previously observ
 
 **Results across the eight functions**
 
-| Function | Dim | Best initial | Best achieved | Pattern |
-|---|---|---|---|---|
-| 1 | 2D | 0.0000 | 1.501 | Flat for 8 rounds, then a sharp isolated jump |
-| 2 | 2D | 0.611 | 0.665 | Early gain, then oscillation |
-| 3 | 3D | -0.035 | -0.014 | Steady improvement toward zero |
-| 4 | 4D | -4.026 | 0.579 | Large early gain, then a clear plateau |
-| 5 | 4D | 1088.9 | 8662.5 | Roughly exponential with boundary coordinates |
-| 6 | 5D | -0.714 | -0.136 | Volatile; worst results at domain corners |
-| 7 | 6D | 1.365 | 2.675 | Consistent incremental improvement |
-| 8 | 8D | 9.598 | 9.982 | Narrow range throughout; marginal gains |
+| Function | Dim | Best initial | Best achieved | Record in round | Pattern |
+|---|---|---|---|---|---|
+| 1 | 2D | 0.0000 | 1.501 | 11 | Flat for 8 rounds, then a sharp isolated jump |
+| 2 | 2D | 0.611 | 0.665 | 6 | Early gain, then oscillation |
+| 3 | 3D | -0.035 | -0.014 | 3 | Steady improvement toward zero |
+| 4 | 4D | -4.026 | 0.579 | 10 | Large early gain, then a clear plateau |
+| 5 | 4D | 1088.9 | 8662.5 | 4 | Roughly exponential with boundary coordinates |
+| 6 | 5D | -0.714 | -0.136 | 9 | Volatile; worst results at domain corners |
+| 7 | 6D | 1.365 | 2.675 | 12 | Consistent incremental improvement |
+| 8 | 8D | 9.598 | 9.982 | 10 | Narrow range throughout; marginal gains |
+
+A weekly query beat the starting data on all eight functions, so the search did real work
+everywhere rather than only where the starting data happened to be weak.
+
+**When the record arrived matters as much as how high it was.** Functions 4, 7 and 8 set
+their best score in rounds 10 to 12, which means the search was still improving when the
+budget ran out. Functions 3 and 5 peaked in rounds 3 and 4 and were never beaten in the
+nine or ten rounds that followed, which suggests an early strong region the search could
+not escape. The thirteenth and final round produced no new records at all.
+
+The full round by round history that produces these figures is in `bbo_state/`, one JSON
+file per function, and `final_summary()` in `bbo_optimizer.py` reproduces this table
+directly from it.
 
 **Notable structural finding.** Function 5's output appears to depend on the number of
 input coordinates set to the domain boundary 1.0, rather than on which specific

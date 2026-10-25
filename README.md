@@ -153,7 +153,8 @@ blind optimisation.
 ├── bbo_state/                    # persisted weekly query history (JSON)
 ├── eda_plots/                    # generated figures
 ├── DATASHEET.md
-└── MODEL_CARD.md
+├── MODEL_CARD.md
+└── LICENSE
 ```
 
 ## Setup
